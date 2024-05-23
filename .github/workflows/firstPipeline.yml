@@ -20,12 +20,20 @@ jobs:
         USER_NAME: ${{ vars.AWS_USER_NAME }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Run a multi-line script
-        run: |          
+      
+      - name: Create temp key
+        run: |
           echo "$PRIVATE_KEY" > moongy-key.pem
-          cd wwwroot
           chmod 400 moongy-key.pem 
-          scp -o StrictHostKeyChecking=no -i ../moongy-key.pem -r . ${USER_NAME}@${HOSTNAME}:/var/www/html/do2/
+
+      - name: lista diretorios
+        run: |
+          ls
+          ls wwwroot
+        
+      - name: publish wwwroot to EC2
+        run: |                    
+          cd wwwroot          
+          scp -o StrictHostKeyChecking=no -i ../moongy-key.pempem -r . ${USER_NAME}@${HOSTNAME}:/var/www/html/do2/
       
       
