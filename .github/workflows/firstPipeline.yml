@@ -22,10 +22,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run a multi-line script
-        run: |
-          cd wwwroot
+        run: |          
           echo "$PRIVATE_KEY" > moongy-key.pem
+          cd wwwroot
           chmod 400 moongy-key.pem 
-          scp -o StrictHostKeyChecking=no -i moongy-key.pem -r . ${USER_NAME}@${HOSTNAME}:/var/www/html/do/
+          scp -o StrictHostKeyChecking=no -i ../moongy-key.pem -r . ${USER_NAME}@${HOSTNAME}:/var/www/html/do2/
       
       
