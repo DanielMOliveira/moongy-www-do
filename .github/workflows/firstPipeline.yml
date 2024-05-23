@@ -34,6 +34,6 @@ jobs:
       - name: publish wwwroot to EC2
         run: |                    
           cd wwwroot          
-          scp -o StrictHostKeyChecking=no -i ../moongy-key.pempem -r . ${USER_NAME}@${HOSTNAME}:/var/www/html/do2/
+          scp -o StrictHostKeyChecking=no -i ../moongy-key.pem -r . ${USER_NAME}@${HOSTNAME}:/var/www/html/do2/
       
       
