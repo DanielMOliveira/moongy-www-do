@@ -15,7 +15,7 @@ jobs:
     environment: Development
     runs-on: ubuntu-latest
     env:
-        PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
+        PRIVATE_KEY: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
         HOSTNAME: ${{ vars.AWS_HOSTNAME }}
         USER_NAME: ${{ vars.AWS_USER_NAME }}
     steps:
