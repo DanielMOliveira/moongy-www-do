@@ -23,9 +23,13 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          echo "$PRIVATE_KEY" > private_key
-          chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
-          ls -l
-          cd /var/www/html
-          echo "Deployed on $(date)" > index.html
+          # echo "$PRIVATE_KEY" > private_key
+          # chmod 600 private_key
+          # ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
+          # ls -l
+          # cd /var/www/html
+          # echo "Deployed on $(date)" > index.html
+
+          echo "$PRIVATE_KEY" > moongy-key.pem
+          chmod 400 moongy-key.pem 
+          scp -o StrictHostKeyChecking=no -i moongy-key.pem index.html ${USER_NAME}@${HOSTNAME}:/var/www/html/do/
