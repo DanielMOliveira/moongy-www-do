@@ -2,8 +2,8 @@ name: Deploy site to AWS EC2
 
 on:
   # Uncomment these lines if you want to run on push or pull request events to the main branch
-  # push:
-  #   branches: [ "main" ]
+  push:
+     branches: [ "main" ]
   # pull_request:
   #   branches: [ "main" ]
 
@@ -23,6 +23,7 @@ jobs:
 
       - name: Run a multi-line script
         run: |
+          echo $PRIVATE_KEY
           ls
           echo $PRIVATE_KEY > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
