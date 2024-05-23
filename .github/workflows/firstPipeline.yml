@@ -12,13 +12,12 @@ on:
 
 jobs:
   copy-html-ec2:
-    env:
-      PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
-      HOSTNAME: ${{ vars.AWS_HOSTNAME }}
-      USER_NAME: ${{ vars.AWS_USER_NAME }}
-            
+    environment: Development
     runs-on: ubuntu-latest
-
+    env:
+        PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
+        HOSTNAME: ${{ vars.AWS_HOSTNAME }}
+        USER_NAME: ${{ vars.AWS_USER_NAME }}
     steps:
       - uses: actions/checkout@v4
 
@@ -30,4 +29,3 @@ jobs:
             ls -l
             cd /var/www/html
             echo "Deployed on $(date)" > index.html
-          EOF
