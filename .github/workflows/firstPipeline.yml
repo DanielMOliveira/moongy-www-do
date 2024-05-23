@@ -26,11 +26,7 @@ jobs:
           echo "$PRIVATE_KEY" > moongy-key.pem
           chmod 400 moongy-key.pem 
 
-      - name: lista diretorios
-        run: |
-          pwd
-          ls
-        
+       
       - name: publish wwwroot to EC2
         run: |                    
           cd wwwroot          
