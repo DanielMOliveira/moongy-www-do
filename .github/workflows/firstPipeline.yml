@@ -2,10 +2,10 @@ name: Deploy site to AWS EC2
 
 on:
   # Uncomment these lines if you want to run on push or pull request events to the main branch
-  push:
-     branches: [ "main" ]
-  # pull_request:
+  # push:
   #   branches: [ "main" ]
+  pull_request:
+     branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
